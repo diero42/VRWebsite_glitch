@@ -89,6 +89,12 @@
     <script>
       var web3 = new Web3(new Web3.providers.WebsocketProvider("wss://mainnet.infura.io/ws"));
       
+      var accountInterval = setInterval(function () {
+        if (web3.eth.accounts[0] !== userAccount) {
+          userAccount = web3.eth.accounts[0];
+        }
+      } 100);
+      
       window.addEventListener('load', function() {
         if (typeof web3 !== 'undefined') {
           web3js = new Web3(web3.currentProvider);
