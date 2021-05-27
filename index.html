@@ -5,9 +5,11 @@
     <title>Vend-o-Matic</title>
     <meta name="description"
           content="Hello, WebVR! • A-Frame">
+    <script language=" javascript" type="text/javascript" src="web3.min.js"></script>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
   </head>
+  
   <body>
     <a-scene>
       <a-assets>
@@ -83,5 +85,19 @@
         rotation="-90 0 0"
         material="src: #grid; repeat: 10000 10000; transparent: true;metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;"></a-entity>-->
     </a-scene>
+    
+    <script>
+      var web3 = new Web3(new Web3.providers.WebsocketProvider("wss://mainnet.infura.io/ws"));
+      
+      window.addEventListener('load', function() {
+        if (typeof web3 !== 'undefined') {
+          web3js = new Web3(web3.currentProvider);
+        } else {
+          console.log('Please install MetaMask to proceed.');
+        }
+
+        startApp()
+      })
+    </script>
   </body>
 </html>
