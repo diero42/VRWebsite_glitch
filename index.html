@@ -13,7 +13,7 @@
     <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@^3.1.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
-    <script src="components/set-image.js"></script>
+    <script src="set-image.js"></script>
   </head>
   
   <body>
@@ -70,10 +70,10 @@
       <a-sky id="the-sky" src="#sky" rotation="0 -135 0"></a-sky>
       
       <a-entity id="vendo" position="0 0 0.5">
-        <a-sphere position="0 3.5 -5"
-                  radius="0.3"
+        <a-sphere position="0 2.15 -2"
+                  radius="0.1"
                   color="#65B8BF"
-                  animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 1000; to: 0 3.3 -5; loop: true">
+                  animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 1000; to: 0 2.25 -2; loop: true">
         </a-sphere>
         <a-cylinder position="0 0 -2"
                   radius="0.75"
@@ -83,14 +83,15 @@
         </a-cylinder>
         <a-box position="0 1 -2"
                rotation="0 0 0"
+               scale="1 1 0.35"
                color="#FA92FB"
                height="1.9"
                width=".8">
         </a-box>
-        <a-entity id="screen">
+        <a-entity id="screen" position="0 0 -0.334">
           <a-entity template="src: #link"
                     data-src="#sky"
-                    data-val="anni"
+                    data-val="Annii"
                     data-pos="0 1.8 -1.49">
           </a-entity>
           <a-entity template="src: #link"
@@ -135,13 +136,13 @@
         </a-cylinder>
        </a-entity>
       
-       <a-camera>
-        <a-cursor id="cursor"></a-cursor>
-      </a-camera>
         <!--<a-entity
         geometry="primitive: plane; width: 10000; height: 10000;"
         rotation="-90 0 0"
         material="src: #grid; repeat: 10000 10000; transparent: true;metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;"></a-entity>-->
+    <a-camera wasd-controls-enabled="false">
+        <a-cursor id="cursor"></a-cursor>
+      </a-camera>
     </a-scene>
     
   </body>
